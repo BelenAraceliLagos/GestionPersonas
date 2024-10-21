@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titulo %} Inicio {% endblock %}
+{% block contenido %} 
+
+<div class="row align-items-md-stretch">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-primary border rounded-3">
+            <h2>Bienvenido al Sistema de Gestión de Personas</h2>
+            <p>Comenzar a Ingresar Personas</p>
+            <a class="nav-item nav-link active" href="{% url 'personas' %}">Empezar</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="h-100 p-5 bg-primary border rounded-3">
+            <h2>Gestion de Recursos Humanos</h2>
+            <p>
+                Somos una empresa dedicada a la gestión de personas en industrias de todo el país.
+            </p>
+            <a class="nav-item nav-link active" href="{% url 'nosotros' %}"> Acerca de Nosotros</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

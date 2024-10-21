@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titulo %} Editar Empleado {% endblock %}
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">Editar Información del Empleado</div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Empleado</h4>
+
+        {% include 'personas/form.html' %}
+        
+    </div>
+    <div class="card-footer text-muted">Footer</div>
+</div>
+
+{% endblock %}

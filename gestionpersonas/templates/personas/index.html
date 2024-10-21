@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block titulo %} Personas {% endblock %}
+{% block contenido %} 
+
+
+<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
+method="POST">
+{% csrf_token %}
+  <div class="input-group">
+    <input type="text" class="form-control bg-light border-0 small" placeholder="Nombre o ID" name="buscar" value="{{ request.POST.buscar }}">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="submit">
+        Buscar
+      </button>
+    </div>
+  </div>
+</br> 
+</form>
+
+
+<div class="card">
+    <div class="card-header">
+        <a
+            name=""
+            id=""
+            class="btn btn-success"
+            href="{% url 'crear' %}"
+            role="button"
+            >Agregar nuevo Empleado</a
+        >
+        
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Personas</h4>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Cargo</th>
+                        <th>Departamento</th>
+                        <th>Salario</th>
+                        <th>Fecha de Contratación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for persona in personas %}
+                    <tr class="">
+                        <td>{{ persona.id }}</td>
+                        <td>{{ persona.nombre }}</td>
+                        <td>{{ persona.cargo }}</td>
+                        <td>{{ persona.departamento }}</td>
+                        <td>{{ persona.salario }}</td>
+                        <td>{{ persona.fecha }}</td>
+                        <td><a
+                            name=""
+                            id=""
+                            class="btn btn-info"
+                            href="{% url 'editar' persona.id %}"
+                            role="button"
+                            >Editar</a
+                        >
+                         | <a
+                            name=""
+                            id=""
+                            class="btn btn-info"
+                            href="{% url 'eliminar' persona.id %}"
+                            role="button"
+                            >Borrar</a
+                         >
+                         </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+ 
+{% endblock %}
+
